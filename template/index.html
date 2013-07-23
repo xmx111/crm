@@ -1,9 +1,20 @@
 $def with (parm1, parm2)
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>首页</title>
     </head>
     <body>
+    	<div>
         Hello $parm1，hello $parm2!
+        </div>
+        <form id="loginForm" method="post" action="/post/">
+        	<h1>用户登录</h1>
+        	<label>用户名：</label>
+        	<input type="text" name="userName" id="userName" />
+        	<label>密码：</label>
+        	<input type="password" name="password" id="password"/>
+        	<button type="submit">登录</button>
+        </form>
     </body>
 </html>
