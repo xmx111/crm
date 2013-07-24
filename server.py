@@ -14,7 +14,8 @@ class index:
 class login:
     def POST(self):
         data = web.input()
-        if data['userName'] == 'admin' and data['password'] == '111111':
+        print data
+        if data['userName'] == u'李彩娟' and data['password'] == '111111':
             retStr = '登录成功'
         else:
             retStr = '用户名或密码错误'
