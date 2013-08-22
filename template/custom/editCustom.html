@@ -1,0 +1,472 @@
+$def with (custom)
+$ type1='selected' if custom.customType==0 else ''
+$ type2='selected' if custom.customType==1 else ''
+$ type3='selected' if custom.customType==2 else ''
+$ type4='selected' if custom.customType==3 else ''
+$ type5='selected' if custom.customType==4 else ''
+$ man='checked' if custom.sex == 0 else ''
+$ woman='checked' if custom.sex == 1 else ''
+$ marriage1='checked' if custom.marriage == 0 else ''
+$ marriage2='checked' if custom.marriage == 1 else ''
+$ marriage3='checked' if custom.marriage == 2 else ''
+      <style type="text/css">
+      #fileQueue {
+        width: 400px;
+        height: 300px;
+        overflow: auto;
+        border: 1px solid #E5E5E5;
+        margin-bottom: 10px;
+      }
+      </style>
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#editCustomInfo" data-toggle="tab">修改客户</a>
+        </li>
+      </ul>
+      <div class="tab-content" style="padding-bottom: 9px;">
+        <div class="tab-pane fade in active" id="editCustomInfo">
+          <form id="editCustomInfoForm" action="/custom" class="form-horizontal">
+            <input type="hidden" id="customId" name="customId" value="$custom.customId">
+            <div class="row">
+              <div class="span10 offset1">
+                <legend><h5>客户类型</h5></legend>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="span12">
+                <div class="row">
+                  <div class="span5">
+                    <div class="control-group info">
+                      <label class="control-label" for="customType">客户类型</label>
+                      <div class="controls">
+                        <select id="customType" name="customType" tabindex="0" >
+                          <option value="0" $type1>电话咨询客户</option>
+                          <option value="1" $type2>准客户</option>
+                          <option value="2" $type3>申请进件客户</option>
+                          <option value="3" $type4>已批客户</option>
+                          <option value="4" $type5>已放款客户</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="span10 offset1">
+                <legend><h5>个人信息</h5></legend>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span12">
+                  <div class="row">
+                    <!-- left -->
+                    <div class="span5">
+                      <div class="control-group info">
+                        <label class="control-label" for="name">客户姓名</label>
+                        <div class="controls">
+                          <input type="text" id="name" name="name" tabindex="1" value="$custom.name" placeholder="客户姓名">
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label" for="cardid">身份证号</label>
+                        <div class="controls">
+                          <input type="text" id="cardid" name="cardid" tabindex="3" value="$custom.cardid" placeholder="身份证号">
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label" for="sex">性别</label>
+                        <div class="controls">
+                          <label class="radio inline">
+                            <input type="radio" name="sex" tabindex="4" id="sex1" value="0" $man>男
+                          </label>
+                          <label class="radio inline">
+                            <input type="radio" name="sex" tabindex="5" id="sex2" value="1" $woman>女
+                          </label>
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label" for="addr">住址</label>
+                        <div class="controls">
+                          <input type="text" id="addr" name="addr" tabindex="8" value="$custom.addr" placeholder="住址">
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label" for="creditCardInfo">信用卡使用情况</label>
+                        <div class="controls">
+                          <textarea id="creditCardInfo" name="creditCardInfo" tabindex="10" value="$custom.creditCardInfo" rows="5"></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label" for="houseAddr">房产地址</label>
+                        <div class="controls">
+                          <textarea id="houseAddr" name="houseAddr" tabindex="12" value="$custom.houseAddr" rows="5"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- left -->
+                    <!-- right -->
+                    <div class="span5 offset1">
+                      <div class="control-group info">
+                        <label class="control-label" for="phone">客户电话</label>
+                        <div class="controls">
+                          <input type="text" id="phone" name="phone" tabindex="2" value="$custom.phone" placeholder="客户电话">
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label">&nbsp;</label>
+                        <div class="controls">
+                          &nbsp;
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label" for="marriage">婚姻状况</label>
+                        <div class="controls">
+                          <label class="radio inline">
+                            <input type="radio" name="marriage" id="marriage1" tabindex="6" value="0" $marriage1>未婚
+                          </label>
+                          <label class="radio inline">
+                            <input type="radio" name="marriage" id="marriage2" tabindex="7" value="1" $marriage2>已婚
+                          </label>
+                          <label class="radio inline">
+                            <input type="radio" name="marriage" id="marriage3" tabindex="7" value="2" $marriage3>离异
+                          </label>
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label" for="regAddr">户口地址</label>
+                        <div class="controls">
+                          <input type="text" id="regAddr" name="regAddr" value="" tabindex="9" value="regAddr" placeholder="户口地址">
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label" for="linkmanInfo">联系人资料</label>
+                        <div class="controls">
+                          <textarea id="linkmanInfo" name="linkmanInfo" tabindex="11" value="$custom.linkmanInfo" rows="5"></textarea>
+                        </div>
+                      </div>
+                      <div class="control-group info">
+                        <label class="control-label">&nbsp;</label>
+                        <div class="controls">
+                          &nbsp;
+                        </div>
+                      </div>
+                    </div>
+                    <!-- right -->
+                  </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="span10 offset1">
+                <legend><h5>工作信息</h5></legend>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span12">
+                <div class="row">
+                  <!-- left -->
+                  <div class="span5">
+                    <div class="control-group info">
+                      <label class="control-label" for="company">工作单位</label>
+                      <div class="controls">
+                        <input type="text" id="company" name="company" tabindex="13" value="$custom.company" placeholder="工作单位">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="companyAttr">单位地址</label>
+                      <div class="controls">
+                        <input type="text" id="companyAttr" name="companyAttr" tabindex="15" value="$custom.companyAttr" placeholder="单位地址">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="salary">月收入</label>
+                      <div class="controls">
+                        <input type="text" id="salary" name="salary" tabindex="17" value="$custom.salary" placeholder="月收入">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- left -->
+                  <!-- right -->
+                  <div class="span5 offset1">
+                    <div class="control-group info">
+                      <label class="control-label" for="companyTel">单位电话</label>
+                      <div class="controls">
+                        <input type="text" id="companyTel" name="companyTel" tabindex="14" value="$custom.companyTel" placeholder="单位电话">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="companyDate">工作时间</label>
+                      <div class="controls">
+                        <input type="text" id="companyDate" name="companyDate" tabindex="16" value="$custom.companyDate" placeholder="工作时间">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="consultTime">咨询时间</label>
+                      <div class="controls">
+                        <input type="text" id="consultTime" name="consultTime" tabindex="18" value="$custom.consultTime" placeholder="咨询时间">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- right -->
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="span10 offset1">
+                <legend><h5>贷款信息</h5></legend>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span12">
+                <div class="row">
+                  <!-- left -->
+                  <div class="span5">
+                    <div class="control-group info">
+                      <label class="control-label" for="creditDate">放款日期</label>
+                      <div class="controls">
+                        <input type="text" id="creditDate" name="creditDate" tabindex="19" value="$custom.creditDate" placeholder="放款日期">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="creditMoney">所批额度</label>
+                      <div class="controls">
+                        <input type="text" id="creditMoney" name="creditMoney" tabindex="21" value="$custom.creditMoney" placeholder="所批额度">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="creditTerm">期数</label>
+                      <div class="controls">
+                        <input type="text" id="creditTerm" name="creditTerm" tabindex="23" value="$custom.creditTerm" placeholder="期数">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="applyCompany">申请过的公司</label>
+                      <div class="controls">
+                        <textarea id="applyCompany" name="applyCompany" tabindex="25" value="$custom.applyCompany" rows="5"></textarea>
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="notPassReazon">不通过原因</label>
+                      <div class="controls">
+                        <textarea id="notPassReazon" name="notPassReazon" tabindex="27" rows="5"></textarea>
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label">&nbsp;</label>
+                      <div class="controls">
+                        &nbsp;
+                      </div>
+                    </div>
+                  </div>
+                  <!-- left -->
+                  <!-- right -->
+                  <div class="span5 offset1">
+                    <div class="control-group info">
+                      <label class="control-label" for="repayDate">还款日期</label>
+                      <div class="controls">
+                        <input type="text" id="repayDate" name="repayDate" tabindex="20" value="$custom.repayDate" placeholder="还款日期">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="creditInterest">所批利息</label>
+                      <div class="controls">
+                        <input type="text" id="creditInterest" name="creditInterest" tabindex="22" value="$custom.creditInterest" placeholder="所批利息">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="enterTime">进件时间</label>
+                      <div class="controls">
+                        <input type="text" id="enterTime" name="enterTime" tabindex="24" value="$custom.enterTime" placeholder="进件时间">
+                      </div>
+                    </div>
+                    <div class="control-group info">
+                      <label class="control-label" for="creditCompany">已贷过的公司</label>
+                      <div class="controls">
+                        <textarea id="creditCompany" name="creditCompany" tabindex="26" value="$custom.creditCompany" rows="5"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- right -->
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="span10 offset1">
+                <legend><h5>上传资料</h5></legend>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="row">
+                <div class="span8 offset2">
+                  <a href="#myModal" role="button" class="btn btn-success" data-toggle="modal">点击上传图片</a>
+                  <input type="hidden" id="fileValue" name="fileValue">
+                  <input type="hidden" id="rmFileValue" name="rmFileValue">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="span10 offset1">
+                  <ul id="pictrueUl" class="thumbnails">
+$for file in custom.customFiles:
+                    <li class="span4" id="imgUploadLi$loop.index"><a href="javascript:;" onclick="rmImgFuncEdit('$file.filePathName', 'imgUploadLi$loop.index', ',$file.fileName@$file.filePathName')" class="thumbnail"><img src="/static/custom/$file.filePathName" alt="$file.fileName"></a></li>
+$ tmp=0
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="span10 offset1">
+                <div style="width:100%;text-align:center;">
+                  <button type="submit" tabindex="27" class="btn btn-large btn-primary">保存</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <form id="uploadCustomFilesForm" action="/customUpload" class="form-horizontal">
+          <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">上传图片</h3>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div id="uploadDiv" class="span10 offset1">
+                <div id="fileQueue"></div>        
+                <input name="uploadify" type="file" id="uploadify" width="110" height="30" jquery1369885682940="2" />\
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+          <button class="btn btn-primary" id="btupload">上传</button>
+          </div>
+        </form>
+      </div>
+      <script src="/static/js/upload/swfobject.js"></script>
+      <script src="/static/js/upload/jquery.uploadify.custom.v2.1.0.js"></script>
+      <script type="text/javascript">
+        imgCount = 0;
+
+        function rmImgFuncEdit(name, id, value){
+          $$("#" + id).remove();
+          reValue = $$("#fileValue").val();
+          reValue = reValue.replace(value, '');
+          $$("#fileValue").val(reValue);
+          $$("#rmFileValue").val($$("#rmFileValue").val()+value);
+          return false;
+        }
+        
+
+        $$("#btupload").click(function(){
+          jQuery('#uploadify').uploadifyUpload();
+          return false;
+        });
+
+        $$('#myModal').on('hide', function () {
+          jQuery('#uploadify').uploadifyClearQueue();
+        })
+
+        $$("#companyDate").datepicker();
+        $$("#consultTime").datepicker();
+        $$("#creditDate").datepicker();
+        $$("#repayDate").datepicker();
+        $$("#enterTime").datepicker();
+
+
+        $$(document).ready(function() {
+          $$("#uploadify").uploadify({
+            'uploader'       : '/static/js/upload/uploadify.swf',////指定上传控件的主体文件，默认‘uploader.swf’ 
+            //'buttonImg'    : '/static/images/btn_bg03_b.gif.jpg', //如果需要修改按钮的图片：可以使用'buttonImg'配置进行替换 
+            'buttonText'     : '浏 览',
+            'script'         : '/customUpload',//上传路径
+            'cancelImg'      : '/static/images/cancel.png',//指定取消上传的图片，默认‘cancel.png’ 
+            'fileDataName'   : 'imgFile',//设置一个名字，在服务器处理程序中根据该名字来取上传文件的数据。默认为Filedata 
+            'folder'         : 'uploadsw', //要上传到的服务器路径，默认‘/’
+            'queueID'        : 'fileQueue',
+            'auto'           : false,  //选定文件后是否自动上传，默认false 
+            'multi'          : true,   //是否允许同时上传多文件，默认false 
+            'simUploadLimit' : 5, //一次同步上传的文件数目  
+            'sizeLimit': 3145728, //设置单个文件大小限制，单位为byte  
+            'queueSizeLimit' : 10, //当允许多文件生成时，设置选择文件的个数，默认值：999 
+            'progressData ': 'all',
+            'fileDesc': '支持格式:jpg/gif/jpeg/png/bmp', //如果配置了以下的'fileExt'属性，那么这个属性是必须的  
+            'fileExt': '*.jpg;*.gif;*.jpeg;*.png;',//允许的格式  
+            //'scriptData'  : {'idtype':'2'},//带参数
+            // 'onSelect': function(event, queueID, fileObj) {           
+            //           alert('The file ' + fileObj.name + ' was added to the queue.');
+            //      }, 
+            'onComplete': function (event, queueID, fileObj, response, data) {
+              //var value = response;
+              var value = "," + fileObj.name + "@" + response;
+              $$("#fileValue").val($$("#fileValue").val() + value);
+              $$("#pictrueUl").append('<li class="span4" id="imgUploadLi' + imgCount + '"><a href="javascript:;" onclick="rmImgFuncEdit(\'' + response + '\', \'imgUploadLi' + imgCount + '\', \'' + value + '\')" class="thumbnail"><img src="/static/tmp/' + response + '" alt="' + fileObj.name + '"></a></li>');
+              imgCount ++;
+            }, 
+            'onError': function(event, queueID, fileObj, errorObj) {  
+              if (errorObj.info=="3145728")
+                alert("文件:" + fileObj.name + "上传失败：文件大小不能超过3M");
+              else
+                alert("文件:" + fileObj.name + "上传失败：" + errorObj.info);
+            },
+            'onCancel': function(event, queueID, fileObj){  
+              //alert("取消了" + fileObj.name);  
+            }
+          });
+
+          $$("#editCustomInfoForm").submit(function(){
+            if ($$("#name").val() == ''){
+              alert("客户姓名不能为空");
+              return false;
+            }
+            $$.ajax({
+              url : $$(this).attr("action"),
+              type : "POST",
+              cache : false,
+              data : $$(this).serialize(),
+              timeout : 100000,
+              success : function(data) {
+                if (data == 1){
+                  $$("#customType").focus();
+                  alert("修改成功！");
+                }else if (data == 2){
+                  $$("#phone").focus();
+                  alert("手机号码已存在！");
+                }else if (data == 3){
+                  $$("#cardid").focus();
+                  alert("身份证号码已存在！");
+                }else if (data == 11){
+                  $$("#companyDate").focus();
+                  alert("工作时间格式不对！");
+                }else if (data == 12){
+                  $$("#consultTime").focus();
+                  alert("咨询时间格式不对！");
+                }else if (data == 13){
+                  $$("#creditDate").focus();
+                  alert("放款日期格式不对！");
+                }else if (data == 14){
+                  $$("#repayDate").focus();
+                  alert("还款日期格式不对！");
+                }else if (data == 15){
+                  $$("#enterTime").focus();
+                  alert("进件时间格式不对！");
+                }else{
+                  alert("修改失败！");
+                }
+              },
+              error : function() {
+                alert("修改出错！");
+              }
+            });
+            return false;
+          });
+        });
+      </script>

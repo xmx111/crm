@@ -1,0 +1,62 @@
+
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#home" data-toggle="tab">修改密码</a>
+        </li>
+      </ul>
+      <div class="tab-content" style="padding-bottom: 9px;">
+        <div class="tab-pane fade in active" id="home">
+          <div class="span8 offset1">
+            <form id="editPwdForm" action="/pwd" class="form-horizontal">
+              <div class="control-group info">
+                <label class="control-label" for="oldpassword">旧密码</label>
+                <div class="controls">
+                  <input type="password" id="oldpassword" name="oldpassword" placeholder="旧密码">
+                </div>
+              </div>
+              <div class="control-group info">
+                <label class="control-label" for="password">新密码</label>
+                <div class="controls">
+                  <input type="password" id="password" name="password" placeholder="新密码">
+                </div>
+              </div>
+              <div class="control-group info">
+                <label class="control-label" for="repassword">确认新密码</label>
+                <div class="controls">
+                  <input type="password" id="repassword" name="repassword" placeholder="确认新密码">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn">保存</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $$("#editPwdForm").submit(function(){
+          if ($$("#oldpassword").val() == ''){
+            alert("旧密码不能为空！");
+            return false;
+          }
+          if ($$("#password").val() == ''){
+            alert("新密码不能为空！");
+            return false;
+          }
+          if ($$("#password").val() != $$("#repassword").val()){
+            alert("新密码和确认新密码不一致！");
+            return false;
+          }
+          $$.post($$(this).attr('action'), $$(this).serialize(), 
+            function(data){
+              if (data == 1){
+                alert("修改成功！");
+                $$("#editPwdForm")[0].reset();
+              }else{
+                alert("修改失败！");
+              }
+            }
+          );
+          return false;
+        });
+      </script>

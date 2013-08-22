@@ -1,0 +1,130 @@
+$def with (customs, page, customType, name, phone, cardid)
+      <ul class="nav nav-tabs" id="customTab">
+        <li class="active">
+          <a href="#customList" data-toggle="tab">客户列表</a>
+        </li>
+        <li>
+          <a href="#customInfoTabCont" id="customInfoTab" data-toggle="tab">客户信息</a>
+        </li>
+      </ul>
+      <div class="tab-content" style="padding-bottom: 9px;">
+        <div class="tab-pane active" id="customList">
+          <div class="row">
+            <div class="span10 offset1">
+              <form id="customQueryForm" action="/customList" class="form-inline">
+              <select id="customType" class="span3" name="customType" tabindex="0" >
+$if customType == None or customType == '-1':
+                <option value="-1" selected>所有客户</option>
+$else:
+                <option value="-1">所有客户</option>
+$if customType != None and customType == 0:
+                <option value="0" selected>电话咨询客户</option>
+$else:
+                <option value="0">电话咨询客户</option>
+$if customType != None and customType == 1:
+                <option value="1" selected>准客户</option>
+$else:
+                <option value="1">准客户</option>
+$if customType != None and customType == 2:
+                <option value="2" selected>申请进件客户</option>
+$else:
+                <option value="2">申请进件客户</option>
+$if customType != None and customType == 3:
+                <option value="3" selected>已批客户</option>
+$else:
+                <option value="3">已批客户</option>
+$if customType != None and customType == 4:
+                <option value="4" selected>已放款客户</option>
+$else:
+                <option value="4">已放款客户</option>
+$ tmp=0
+              </select>
+              <input type="text" id="name" name="name" class="span2" tabindex="1" value="$name" placeholder="客户姓名">
+              <input type="text" id="phone" name="phone" class="span2" tabindex="2" value="$phone" placeholder="手机号">
+              <input type="text" id="cardid" name="cardid" class="span3" tabindex="3" value="$cardid" placeholder="身份证号">
+              <input type="hidden" id="page" name="page" value="1">
+              <button type="submit" class="btn btn-primary offset1">查询</button>
+              </form>
+              <input type="hidden" id="pageCurr" name="pageCurr" value="$page.index">
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10 offset1">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>客户姓名</th>
+                    <th>客户类型</th>
+                    <th>手机号</th>
+                    <th>咨询时间</th>
+                    <th>进件时间</th>
+                    <th>操作</th>
+                    <th>操作</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <td colspan="7">
+                          <div class="pagination pagination-centered">
+                          $:page.getFuncScrpit()
+                          </div>
+                    </td>
+                  </tr>
+                </tfoot>
+                <tbody>
+$ customType={0:'电话咨询客户',1:'准客户',2:'申请进件客户',3:'已批客户',4:'已放款客户'}
+$for custom in customs:
+    <tr>
+      <td>$custom.name</td>
+      <td>$customType[custom.customType]</td>
+      <td>$custom.phone</td>
+      <td>$custom.consultTime</td>
+      <td>$custom.enterTime</td>
+      <td><a href="javascript:;" onclick="getCustom($custom.customId)"><span class="label label-success">查看</span></a></td>
+      <td><a href="javascript:;" onclick="editCustom($custom.customId)"><span class="label label-info">修改</span></a></td>
+      <td><a href="javascript:;" onclick="delCustom($custom.customId)"><span class="label label-inverse">删除</span></a></td>
+    </tr>
+$ tmp=0
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="customInfoTabCont">
+        </div>
+      </div>
+      <script>
+      $$("#customQueryForm").submit(function(){
+        fillDivContGET($$(this).attr("action"), 'changeDiv', $$(this).serialize());
+        return false;
+      });
+      function getCustom(id){
+        $$('customInfoTabCont').html('');
+        fillDivCont("/customView?customId=" + id, 'customInfoTabCont');
+        $$("#customInfoTab").click();
+        return false;
+      }
+      function editCustom(id){
+        fillDivCont("/customEditView", 'changeDiv', "customId=" + id);
+        return false;
+      }
+      function delCustom(id){
+        $$.ajax({
+          url : "/custom?customId=" + id,
+          type : "DELETE",
+          cache : false,
+          timeout : 100000,
+          success : function(response) {
+            $$("#page").val($$("#pageCurr").val());
+            $$("#customQueryForm").submit();
+            return false;
+          },
+          error : function() {
+            alert("删除失败");
+          }
+        });
+        return false;
+      }
+      </script>

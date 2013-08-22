@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="126"
+   name=""
+   committed-date="2013-01-25T08:09:28.974125Z"
+   url="svn://192.168.1.221/everydebt/09-%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81/everydebt/WebRoot/js/validate/localization"
+   last-author="khe"
+   kind="dir"
+   repos="svn://192.168.1.221/everydebt"
+   revision="2876"/>
+<entry
+   committed-rev="126"
+   name="messages_sl.js"
+   text-time="2013-01-24T05:53:41.703125Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="60486a4e61584d68e16a0ef3335cb0f9"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_lt.js"
+   text-time="2013-01-24T05:53:41.671875Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="a4abd3255d3a0a6649077da1f6afef39"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="methods_pt.js"
+   text-time="2013-01-24T05:53:41.781250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="1f970f19b1d6d764805e7cad626119e9"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_zh.js"
+   text-time="2013-01-24T08:05:21.078125Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="6522671d0b860bdac5fb9ebf27eda764"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_lv.js"
+   text-time="2013-01-24T05:53:41.671875Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="fb5defe85291806562bf2b152fa1cd7a"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_ca.js"
+   text-time="2013-01-24T05:53:41.593750Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="1b2775a6924afcac8d058dd4a79d531d"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_da.js"
+   text-time="2013-01-24T05:53:41.593750Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="3494d044b351b02ad8d3ef2c74f65662"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="methods_de.js"
+   text-time="2013-01-24T05:53:41.781250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="23e28fc886feaa858fd6bab7850a43bd"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_sr.js"
+   text-time="2013-01-24T05:53:41.703125Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="66966f25c836cc3d3c2b001ba0364d62"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_tr.js"
+   text-time="2013-01-24T05:53:41.750000Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="a122160828104d6af830f91650ad0f38"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_fa.js"
+   text-time="2013-01-24T05:53:41.609375Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="63ec88c2ed6292f6f461f4e25844ee87"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_pt_PT.js"
+   text-time="2013-01-24T05:53:41.687500Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="289755a07e2e248d33e9fe0ede8d6b3b"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_de.js"
+   text-time="2013-01-24T05:53:41.593750Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="31fd61e7a6bb3d33dfc2b362cb5f7f27"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_bg.js"
+   text-time="2013-01-24T05:53:41.593750Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="adae102cd6ab0bbb9d45338d43b6a77f"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_sv.js"
+   text-time="2013-01-24T05:53:41.734375Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="cfd0b5d3549992163d6a33b03f2d4b1f"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_ja.js"
+   text-time="2013-01-24T05:53:41.671875Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="81ad44a8bf28aa63f4e17bf9559c4c95"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_ka.js"
+   text-time="2013-01-24T05:53:41.671875Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="cd4434a68fd4dff98150fc3fa2619912"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_he.js"
+   text-time="2013-01-24T05:53:41.656250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="5bb5fae06c4a8a530df64315fdd91865"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_fi.js"
+   text-time="2013-01-24T05:53:41.609375Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="6cc4189b2dc5fde1d8996e7a05f76eef"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_kk.js"
+   text-time="2013-01-24T05:53:41.671875Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="01db647701a56c47d5476d04fd201e6e"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_cs.js"
+   text-time="2013-01-24T05:53:41.593750Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="ff6e5f5c997f69da57244e348589e502"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_es.js"
+   text-time="2013-01-24T05:53:41.609375Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="06a88280b99eec31a05f5bf3ee84e2fc"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_eu.js"
+   text-time="2013-01-24T05:53:41.609375Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="6d26864e14fd68cfd92a2d611bed4116"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_si.js"
+   text-time="2013-01-24T05:53:41.703125Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="56bfbf6c5f8ef86680b70db803edce8c"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_hu.js"
+   text-time="2013-01-24T05:53:41.656250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="b2bbba38e68cf1c5beb434954effe58a"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_no.js"
+   text-time="2013-01-24T05:53:41.687500Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="b58c5313f1a2840c7a14ee0f42d8c0f5"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_sk.js"
+   text-time="2013-01-24T05:53:41.703125Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="048f1e07c9a5f4b6185e7c987198f697"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_vi.js"
+   text-time="2013-01-24T05:53:41.750000Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="bc29dc6bce54d3321c566877a02e7217"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_uk.js"
+   text-time="2013-01-24T05:53:41.750000Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="2fa71692d5844ef981a9161d5b3b8a15"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_ro.js"
+   text-time="2013-01-24T05:53:41.687500Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="0955bdb63d7b7c6ed83b5f869af49efa"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_ru.js"
+   text-time="2013-01-24T05:53:41.687500Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="d3f82a8580479a66e869a62f8113dbdc"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_zh_TW.js"
+   text-time="2013-01-24T05:53:41.781250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="0811ee973416a3e79162b1f4497f0e46"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_el.js"
+   text-time="2013-01-24T05:53:41.593750Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="c60d6b37fadbefa3d7902455ab906e50"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_ar.js"
+   text-time="2013-01-24T05:53:41.578125Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="22824928d4337bb9732f738df9ebd999"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="methods_nl.js"
+   text-time="2013-01-24T05:53:41.781250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="9ad47ba10b4f3a4bc9ac38cdee6008d1"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_pt_BR.js"
+   text-time="2013-01-24T05:53:41.687500Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="55f8afaa4302c9bc530f836296686a28"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_fr.js"
+   text-time="2013-01-24T05:53:41.656250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="f00613dabab31b4a507f87232dcac3b0"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_et.js"
+   text-time="2013-01-24T05:53:41.609375Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="7b342b55f6d4768291e905c781d4089d"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_hr.js"
+   text-time="2013-01-24T05:53:41.656250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="c1d0aa5ff0c1bf8b6ed17370e1fad38e"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_nl.js"
+   text-time="2013-01-24T05:53:41.671875Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="7f8d0038e50ea40baccde353174dec37"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_pl.js"
+   text-time="2013-01-24T05:53:41.687500Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="32833f613878d80aa21da6a03c2336c3"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_th.js"
+   text-time="2013-01-24T05:53:41.734375Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="45cedf453998cd084e02964771aba506"
+   last-author="khe"
+   kind="file"/>
+<entry
+   committed-rev="126"
+   name="messages_it.js"
+   text-time="2013-01-24T05:53:41.656250Z"
+   committed-date="2013-01-25T08:09:28.974125Z"
+   checksum="71ea5c408a00faa3d1f566033b691358"
+   last-author="khe"
+   kind="file"/>
+</wc-entries>

@@ -1,0 +1,199 @@
+$def with (username)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <META HTTP-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <META HTTP-equiv="expires" content="Wed, 26 Feb 1978 08:21:57 GMT">
+    <title>主页</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- CSS -->
+    <link href="/static/js/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="/static/js/jquery/css/jquery-ui-1.10.2.custom.css" rel="stylesheet" />
+    <link href="/static/js/upload/css/uploadify.css" rel="stylesheet" />
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media () {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+
+
+
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+
+      #wrap > .container_sl {
+        padding-top: 60px;
+      }
+      .container .credit {
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      code {
+        font-size: 80%;
+      }
+      #menu {
+        background-color: #ffffff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      }
+
+      #menu .icon-chevron-right {
+      float: right;
+      margin-top: 5px;
+      margin-right: 6px;
+      opacity: .25;
+      }
+
+      .form-actions {
+        background-color: #ffffff;
+      }
+
+      h1, h2, h3, .masthead p, .subhead p, .marketing h2, .lead
+      {
+        font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "宋体", simsun, sans-serif;
+        font-weight: normal;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+
+    <!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="row-fluid">
+            <div class="span10 offset1">
+              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="brand" href="#">李彩娟的客户管理系统</a>
+              <div class="nav-collapse collapse">
+                <p class="navbar-text pull-right">
+                  欢迎登录，我最亲爱的~
+                </p>
+                <ul class="nav">
+                  <li class="active"><a href="#"><i class="icon-home icon-white"></i>首页</a></li>
+                  <li><a href="#about">关于</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li class="nav-header">Nav header</li>
+                      <li><a href="#">Separated link</a></li>
+                      <li><a href="#">One more separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Begin page content -->
+      <div class="container_sl">
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span2 offset1" >
+                <ul id="menu" class="nav nav-list well">
+                  <li class="nav-header">用户管理</li>
+                  <li><i class="icon-chevron-right"></i><a class="jpright_cg" href="/userView">个人信息</a></li>
+                  <li><i class="icon-chevron-right"></i><a class="jpright" href="/pwd">修改密码</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">客户管理</li>
+                  <li><i class="icon-chevron-right"></i><a class="jpright" href="/customView">添加客户</a></li>
+                  <li><i class="icon-chevron-right"></i><a class="jpright" href="/customList?page=1">客户列表</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">系统管理</li>
+                  <li><i class="icon-chevron-right"></i><a href="/logout">退出</a></li>
+                </ul>
+            </div><!--/span-->
+            <div class="span8" id="changeDiv">
+              
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/.fluid-container-->
+      </div>
+
+      <div id="bfDiv" style="display:none;"><div style="text-align:center;padding-top:100px"><img src="/static/images/loading.gif"></img></div></div>
+
+      <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; Company 2013</p>
+      </div>
+    </div>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/js/jquery/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/jquery/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="/static/js/jquery/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+    <script src="/static/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/menu.js"></script>
+    <script type="text/javascript">
+      $$(".jpright").click(function(){
+        fillDivContGET($$(this).attr("href"), "changeDiv");
+        return false;
+      });
+      $$(".jpright_cg").click(function(){
+        fillDivCont($$(this).attr("href"), "changeDiv");
+        return false;
+      });
+    </script>
+
+  </body>
+</html>

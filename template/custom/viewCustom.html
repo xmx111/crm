@@ -1,0 +1,125 @@
+$def with (custom)
+$code:
+    customType=''
+    sex=''
+    marriage=''
+    if custom.customType == 0:customType='电话咨询客户'
+    elif custom.customType == 1:customType='准客户'
+    elif custom.customType == 2: customType='申请进件客户'
+    elif custom.customType == 3: customType='已批客户'
+    elif custom.customType == 4: customType='已放款客户'
+    if custom.sex == 0: sex='男'
+    elif custom.sex == 1: sex='女'
+    if custom.marriage == 0: marriage='未婚'
+    elif custom.marriage == 1: marriage='已婚'
+    elif custom.marriage == 2: marriage='离异'
+$ tmp=0
+          <div class="row">
+            <div class="span10 offset1">
+              <legend><h5>客户姓名：$custom.name&nbsp;&nbsp;&nbsp;&nbsp;(<em>$customType</em>)</h5></legend>
+              <h6>
+              <table class="table table-bordered">
+                <tr >
+                  <td style="width:120px;text-align:right;">电话：</td>
+                  <td style="text-align:left;" class="text-info">$custom.phone</td>
+                  <td style="width:100px;text-align:right;">身份证号：</td>
+                  <td style="text-align:left;" class="text-info">$custom.cardid</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">性别：</td>
+                  <td style="text-align:left;" class="text-info">$sex</td>
+                  <td style="text-align:right;">婚姻状况：</td>
+                  <td style="text-align:left;" class="text-info">$marriage</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">住址：</td>
+                  <td style="text-align:left;" class="text-info">$custom.addr</td>
+                  <td style="text-align:right;">户口地址：</td>
+                  <td style="text-align:left;" class="text-info">$custom.regAddr</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">信用卡使用情况：</td>
+                  <td style="text-align:left;" class="text-info">$custom.creditCardInfo</td>
+                  <td style="text-align:right;">联系人资料：</td>
+                  <td style="text-align:left;" class="text-info">$custom.linkmanInfo</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">房产地址：</td>
+                  <td colspan="3" style="text-align:left;" class="text-info">$custom.houseAddr</td>
+                </tr>
+
+                <tr >
+                  <td style="text-align:right;">工作单位：</td>
+                  <td style="text-align:left;" class="text-info">$custom.company</td>
+                  <td style="text-align:right;">单位电话：</td>
+                  <td style="text-align:left;" class="text-info">$custom.companyTel</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">单位地址：</td>
+                  <td style="text-align:left;" class="text-info">$custom.companyAttr</td>
+                  <td style="text-align:right;">工作时间：</td>
+                  <td style="text-align:left;" class="text-info">$custom.companyDate</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">月收入：</td>
+                  <td style="text-align:left;" class="text-info">$custom.salary</td>
+                  <td style="text-align:right;">咨询时间：</td>
+                  <td style="text-align:left;" class="text-info">$custom.consultTime</td>
+                </tr>
+
+                <tr >
+                  <td style="text-align:right;">放款日期：</td>
+                  <td style="text-align:left;" class="text-info">$custom.creditDate</td>
+                  <td style="text-align:right;">还款日期：</td>
+                  <td style="text-align:left;" class="text-info">$custom.repayDate</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">所批额度：</td>
+                  <td style="text-align:left;" class="text-info">$custom.creditMoney</td>
+                  <td style="text-align:right;">所批利息：</td>
+                  <td style="text-align:left;" class="text-info">$custom.creditInterest</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">期数：</td>
+                  <td style="text-align:left;" class="text-info">$custom.creditTerm</td>
+                  <td style="text-align:right;">进件时间：</td>
+                  <td style="text-align:left;" class="text-info">$custom.enterTime</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">申请过的公司：</td>
+                  <td style="text-align:left;" class="text-info">$custom.applyCompany</td>
+                  <td style="text-align:right;">已贷过的公司：</td>
+                  <td style="text-align:left;" class="text-info">$custom.creditCompany</td>
+                </tr>
+                <tr >
+                  <td style="text-align:right;">不通过原因：</td>
+                  <td style="text-align:left;" class="text-info">$custom.notPassReazon</td>
+                  <td style="text-align:right;">&nbsp;</td>
+                  <td style="text-align:left;" class="text-info">&nbsp;</td>
+                </tr>
+              </table>
+              </h6>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10 offset1">
+              <legend><h5>图片文件：</h5></legend>
+              <ul id="pictrueUl" class="thumbnails">
+$for file in custom.customFiles:
+                <li class="span4" id="imgUploadLi$loop.index"><a href="/static/custom/$file.filePathName" target="_blank" class="thumbnail"><img src="/static/custom/$file.filePathName" alt="$file.fileName"></a></li>
+$ tmp=0
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span10 offset1">
+              <div style="width:100%;text-align:center;">
+                <input type="button" tabindex="1" id="editCustomBt" class="btn btn-large btn-primary" value="修改">
+              </div>
+            </div>
+          </div>
+          <script>
+          $$("#editCustomBt").click(function(){
+            fillDivCont("/customEditView", 'changeDiv', "customId=$custom.customId");
+          });
+          </script>
