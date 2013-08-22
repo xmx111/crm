@@ -57,7 +57,7 @@ class index:
             return render.index('', '')
         else:
             return render.main(session.get('user').userName)
-        
+
 class login:
     def POST(self):
         data = web.input()
