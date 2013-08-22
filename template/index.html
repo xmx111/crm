@@ -1,20 +1,101 @@
-$def with (parm1, parm2)
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>首页</title>
-    </head>
-    <body>
-    	<div>
-        Hello $parm1，hello $parm2!
-        </div>
-        <form id="loginForm" method="post" action="/post/">
-        	<h1>用户登录</h1>
-        	<label>用户名：</label>
-        	<input type="text" name="userName" id="userName" />
-        	<label>密码：</label>
-        	<input type="password" name="password" id="password"/>
-        	<button type="submit">登录</button>
-        </form>
-    </body>
+$def with (parm1, error)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template &middot; Bootstrap</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/js/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+        background-color: #f5f5ff;
+      }
+      .container1{
+        width: 400;
+      }
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+      .form-signin {
+        max-width: 300px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+      .footer{
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+          <div class="masthead">
+            <ul class="nav nav-pills pull-right">
+              <li class="active"><a href="#">首页</a></li>
+              <li><a href="#">关于</a></li>
+            </ul>
+            <h3 class="muted">李彩娟的客户管理系统</h3>
+          </div>
+
+          <hr>
+
+          <div class="container1">
+            <form class="form-signin" action="/post" method="post">
+                <h4 class="form-signin-heading">登录系统</h4>
+$if error != '':
+    <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        $error
+    </div>
+$var err: error
+                <input type="text" id="userName" name="userName" class="input-block-level" placeholder="用户名">
+                <input type="password" id="password" name="password" class="input-block-level" placeholder="密码">
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me"> 记住我
+                </label>
+                <button class="btn btn-large btn-primary" type="submit">登录</button>
+            </form>
+          </div>
+
+          <hr>
+
+          <div class="footer">
+            <p>&copy; Company 2013 by 贺康</p>
+          </div>
+          
+        </div> <!-- /container -->
+        <script src="/static/js/jquery/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/bootstrap/js/bootstrap.min.js"></script>
+  </body>
 </html>

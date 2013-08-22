@@ -2,11 +2,12 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>客户管理系统</title>
+		<title>我最亲爱的李彩娟的客户管理系统</title>
 		<meta name="description" content="">
 		<meta name="author" content="khe">
 
 		<link rel="stylesheet" type="text/css" href="/static/js/bootstrap/css/bootstrap.min.css">
+    <link href="/static/js/jquery/css/jquery-ui-1.10.2.custom.css" rel="stylesheet" />
 		<style type="text/css">
 	      body {
 	        padding-top: 40px;
@@ -44,8 +45,9 @@
 	<body>
 		<div class="container">
 			<form class="form-signin" action="/post" method="post">
-				<h3 class="form-signin-heading">请登录系统</h2>
+				<h3 class="form-signin-heading">请登录系统</h3>
 				<input type="text" id="userName" name="userName" class="input-block-level" placeholder="用户名">
+				<input type="text" id="ttt1" name="ttt1" class="input-block-level" placeholder="日期">
 				<input type="password" id="password" name="password" class="input-block-level" placeholder="密码">
 				<label class="checkbox">
 					<input type="checkbox" value="remember-me"> 记住我
@@ -53,8 +55,15 @@
 				<button class="btn btn-large btn-primary" type="submit">登录</button>
 			</form>
 		</div>
+		<input type="text" id="ttt" name="ttt">
 
 		<script src="/static/js/jquery/jquery-1.10.2.min.js"></script>
+      	<script src="/static/js/jquery/jquery-ui-1.10.2.custom.min.js"></script>
+      	<script src="/static/js/jquery/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+		<script>
+		$("#ttt1").datepicker();
+		$("#ttt").datepicker();
+		</script>
 
 	</body>
 </html>
