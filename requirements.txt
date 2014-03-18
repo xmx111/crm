@@ -1,0 +1,4 @@
+web.py==0.37
+SQLAlchemy==0.9.3
+pybcs > 0.8
+MySQL-python==1.2.3

@@ -1,65 +1,93 @@
 #-*-coding:utf-8-*-
 import time
 import os
-from bae.core import const
-from bae.api import bcs
-from bae.api import logging
+# BAE3.0 bae.core.const已被删除
+#from bae.core import const
+# bcs
+import logging
+import pybcs
 
-HOST = const.BCS_ADDR
-AK = '960888a34d93e7d8bc481bdac994aa4e'
-SK = 'BB9efe74392a0f7c7902b1c088dc0def'
+#设置日志级别
+pybcs.init_logging(logging.INFO)
+
+HOST = 'http://bcs.duapp.com/'
+AK = 'X1p8KwhrRfpv3rMP9bej3hqj'
+SK = 'OkV35Zq1OyXNSFVB3MdrUGgxmcTbGGk5'
 BNAME = 'crm-01'
+
 
 class baidu:
     @staticmethod
-    def upload(fileName, fileValue, fileFolder = '/custom/'):
+    def getBucket():
         ### 首先通过云存储管理界面，创建一个bucket
-        #bname = 'crm-01'
-
         ### 创建BCS管理对象
-        baebcs = bcs.BaeBCS(HOST, AK, SK)
+        #这里可以显式选择使用的HttpClient, 可以是:
+        #HttplibHTTPC
+        #PyCurlHTTPC
+        bcs = pybcs.BCS(HOST, AK, SK, pybcs.HttplibHTTPC)
+
+        #声明一个bucket
+        b = bcs.bucket(BNAME)
+        return b
+
+    @staticmethod
+    def upload(fileName, fileValue, fileFolder = '/custom/'):
+        #获得一个bucket
+        b = getBucket()
 
         ### 将文件内容上传到 '/custom' 下
-        o1 = str(fileFolder + fileName)
-        e, d = baebcs.put_object(BNAME, o1, fileValue)
-        #baebcs.make_public(BNAME, o1)
+        #声明一个object
+        o = b.object(fileFolder + fileName)
+        o.put(fileValue)
         
-    	return 'http://bcs.duapp.com/' + BNAME + o1
+        return 'http://bcs.duapp.com/' + BNAME + o1
+
     @staticmethod
     def getFile(fileName):
-        ### 从获取数据
-        baebcs = bcs.BaeBCS(HOST, AK, SK)
-        e, d = baebcs.get_object(BNAME, fileName)
-        return d
-    
+        #获得一个bucket
+        b = getBucket()
+        #声明一个object
+        o = b.object(fileName)
+
+        return o.get()
+
     @staticmethod
     def moveTmpFileToCustom(fileName):
         ### 复制文件
-        baebcs = bcs.BaeBCS(HOST, AK, SK)
-        e, d = baebcs.copy_object(BNAME, '/tmp/' + fileName, BNAME, '/custom/' + fileName)
+        #获得一个bucket
+        b = getBucket()
+        #声明一个object
+        oTmp = b.object('/tmp/' + fileName)
+        oTmp.copy_to('/custom/' + fileName)
         time.sleep(1)
-        e, d = baebcs.del_object(BNAME, '/tmp/' + fileName)
-        return d
+        oTmp.delete()
     
     @staticmethod
     def copyTmpFileToCustom(fileName):
         ### 复制文件
-        baebcs = bcs.BaeBCS(HOST, AK, SK)
-        e, d = baebcs.copy_object(BNAME, '/tmp/' + fileName, BNAME, '/custom/' + fileName)
-        return d
+        #获得一个bucket
+        b = getBucket()
+        #声明一个object
+        oTmp = b.object('/tmp/' + fileName)
+        oTmp.copy_to('/custom/' + fileName)
     
     @staticmethod
     def delFile(fileName):
         ### 删除文件
-        baebcs = bcs.BaeBCS(HOST, AK, SK)
-        e, d = baebcs.del_object(BNAME, fileName)
-        return d
+        #获得一个bucket
+        b = getBucket()
+        #声明一个object
+        o = b.object(fileName)
+        o.delete()
+
     @staticmethod
     def getFiles(filePath = '/custom'):
         ### 列出所有的object
-        baebcs = bcs.BaeBCS(HOST, AK, SK)
-        e, d = baebcs.list_objects(BNAME)
-        str = ','.join(d)
+        #获得一个bucket
+        b = getBucket()
+        objs = b.list_objects()
+        str = ','.join([o.object_name for o in objs])
+
         return str
 
 if __name__ == '__main__':

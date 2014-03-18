@@ -1,19 +1,20 @@
 #-*-coding:utf-8-*-
 import web
-import sys
-import os
+import sys, os
 import uuid
 import re
 from datetime import datetime
 from com.ufo.service.Service import User, Custom, CustomFile, FileValue
 from com.ufo.service.utils.EncryptUtils import Encrypt
 from com.ufo.service.utils.YunPanUtils import baidu
-from bae.api import logging
-from bae.core import const
-import tempfile
+import logging
+# BAE3.0 bae.core.const已被删除，已经有了可以直接使用/tmp/的权限
+#from bae.core import const
+#import tempfile
 
-# web.py中file使用的系统默认的/tmp/xxx目录，由于BAE上面修改了tempfile，所以修改tempfile路径
-tempfile.tempdir = const.APP_TMPDIR
+# web.py中file使用的系统默认的/tmp/xxx目录，由于BAE2.0上面修改了tempfile，所以修改tempfile路径
+# BAE3.0 bae.core.const已被删除，已经有了可以直接使用/tmp/的权限
+#tempfile.tempdir = const.APP_TMPDIR
 #import cStringIO 
 #def TemporaryFile(mode='w+b', bufsize=-1, suffix="", prefix='', dir=None): 
 #    return cStringIO.StringIO() 
@@ -56,7 +57,10 @@ web.config.session_parameters['ignore_change_ip'] = True
 web.config.session_parameters['secret_key'] = 'lkjsdIfnnM97fwoP'
 web.config.session_parameters['expired_message'] = 'Session expired'
 
-session = web.session.Session(app, web.session.DiskStore(os.path.join(const.APP_TMPDIR,'sessions')),)
+# bae2.0 没有/tmp/的权限使用指定目录const.APP_TMPDIR
+#session = web.session.Session(app, web.session.DiskStore(os.path.join(const.APP_TMPDIR,'sessions')),)
+# bae3.0 bae.core.const已被删除，已经有了可以直接使用/tmp/的权限
+session = web.session.Session(app, web.session.DiskStore('sessions'),)
 
 templates_root = os.path.join(app_root, 'template')
 render = web.template.render(templates_root)
