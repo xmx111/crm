@@ -314,7 +314,7 @@ $ marriage3='checked' if custom.marriage == 2 else ''
                 <div class="span10 offset1">
                   <ul id="pictrueUl" class="thumbnails">
 $for file in custom.customFiles:
-                    <li class="span4" id="imgUploadLi$loop.index"><a href="javascript:;" onclick="rmImgFuncEdit('$file.filePathName', 'imgUploadLi$loop.index', ',$file.fileName@$file.filePathName')" class="thumbnail"><img src="/static/custom/$file.filePathName" alt="$file.fileName"></a></li>
+                    <li class="span4" id="imgUploadLi$loop.index"><a href="javascript:;" onclick="rmImgFuncEdit('$file.filePathName', 'imgUploadLi$loop.index', ',$file.fileName@$file.filePathName')" class="thumbnail"><img src="http://bcs.duapp.com/crm-01/custom/$file.filePathName" alt="$file.fileName"></a></li>
 $ tmp=0
                   </ul>
                 </div>
@@ -408,7 +408,7 @@ $ tmp=0
               //var value = response;
               var value = "," + fileObj.name + "@" + response;
               $$("#fileValue").val($$("#fileValue").val() + value);
-              $$("#pictrueUl").append('<li class="span4" id="imgUploadLi' + imgCount + '"><a href="javascript:;" onclick="rmImgFuncEdit(\'' + response + '\', \'imgUploadLi' + imgCount + '\', \'' + value + '\')" class="thumbnail"><img src="/static/tmp/' + response + '" alt="' + fileObj.name + '"></a></li>');
+              $$("#pictrueUl").append('<li class="span4" id="imgUploadLi' + imgCount + '"><a href="javascript:;" onclick="rmImgFuncEdit(\'' + response + '\', \'imgUploadLi' + imgCount + '\', \'' + value + '\')" class="thumbnail"><img src="http://bcs.duapp.com/crm-01/tmp/' + response + '" alt="' + fileObj.name + '"></a></li>');
               imgCount ++;
             }, 
             'onError': function(event, queueID, fileObj, errorObj) {  

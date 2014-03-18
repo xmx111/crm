@@ -7,6 +7,7 @@ import os
 import DBConfig
 from datetime import datetime, date
 from utils.EncryptUtils import Encrypt
+from utils.YunPanUtils import baidu
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -188,8 +189,9 @@ class Custom(Base):
         session.add(custom)
         session.commit()
         for cFile2 in custom.customFiles:
-            if os.path.exists(os.path.join("static", "tmp", cFile2.filePathName)):
-                os.rename(os.path.join("static", "tmp", cFile2.filePathName), os.path.join("static", "custom", cFile2.filePathName))
+            #if os.path.exists(os.path.join(app_root, "static", "tmp", cFile2.filePathName)):
+            #    os.rename(os.path.join(app_root, "static", "tmp", cFile2.filePathName), os.path.join(app_root, "static", "custom", cFile2.filePathName))
+            baidu.moveTmpFileToCustom(cFile2.filePathName)
         return custom.customId
 
     @staticmethod
@@ -242,12 +244,14 @@ class Custom(Base):
             customQuery.customFiles.append(cFile)
         # 添加文件
         for filePathName in fileDict.keys():
-            if os.path.exists(os.path.join("static", "tmp", filePathName)):
-                os.rename(os.path.join("static", "tmp", filePathName), os.path.join("static", "custom", filePathName))
+            #if os.path.exists(os.path.join(app_root, "static", "tmp", filePathName)):
+            #    os.rename(os.path.join(app_root, "static", "tmp", filePathName), os.path.join(app_root, "static", "custom", filePathName))
+            baidu.moveTmpFileToCustom(filePathName)
         # 删除文件
         for rmName in rmFileList:
-            if os.path.exists(os.path.join("static", "custom", rmName)):
-                os.remove(os.path.join("static", "custom", rmName))
+            #if os.path.exists(os.path.join(app_root, "static", "custom", rmName)):
+            #    os.remove(os.path.join(app_root, "static", "custom", rmName))
+            baidu.delFile('/custom/' + rmName)
         session.commit()
         return "1"
 
@@ -286,7 +290,10 @@ class Custom(Base):
     def delete(customId):
         session=bindSQL()
         custom = session.query(Custom).filter(Custom.customId==customId).first()
+        if custom == None:
+            return 0
         for customFile in custom.customFiles:
+            baidu.delFile('/custom/' + customFile.filePathName)
             session.delete(customFile)
         session.delete(custom)
         session.commit()
@@ -309,6 +316,18 @@ class CustomFile(Base):
         session.add(customFile)
         session.commit()
 
+class FileValue(Base):
+    __tablename__ = "rainbow_test"
+    id = Column(Integer, primary_key=True)
+    fileValue = Column(String(2000))
+    def __init__(self, fileValue=''):
+        self.fileValue = fileValue
+    @staticmethod
+    def add(fileValue):
+        session=bindSQL()
+        session.add(fileValue)
+        session.commit()
+        
 metadata = Base.metadata
 
 if __name__ == '__main__':

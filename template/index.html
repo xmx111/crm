@@ -71,7 +71,7 @@ $def with (parm1, error)
           <hr>
 
           <div class="container1">
-            <form class="form-signin" action="/post" method="post">
+            <form class="form-signin" action="/login" method="post">
                 <h4 class="form-signin-heading">登录系统</h4>
 $if error != '':
     <div class="alert alert-error">
@@ -81,9 +81,6 @@ $if error != '':
 $var err: error
                 <input type="text" id="userName" name="userName" class="input-block-level" placeholder="用户名">
                 <input type="password" id="password" name="password" class="input-block-level" placeholder="密码">
-                <label class="checkbox">
-                    <input type="checkbox" value="remember-me"> 记住我
-                </label>
                 <button class="btn btn-large btn-primary" type="submit">登录</button>
             </form>
           </div>
@@ -95,7 +92,7 @@ $var err: error
           </div>
           
         </div> <!-- /container -->
-        <script src="/static/js/jquery/jquery-1.10.2.min.js"></script>
+        <script src="/static/js/jquery/jquery.min.js"></script>
     <script src="/static/js/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

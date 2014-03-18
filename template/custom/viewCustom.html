@@ -3,14 +3,14 @@ $code:
     customType=''
     sex=''
     marriage=''
-    if custom.customType == 0:customType='电话咨询客户'
+    if custom.customType == None or custom.customType == 0:customType='电话咨询客户'
     elif custom.customType == 1:customType='准客户'
     elif custom.customType == 2: customType='申请进件客户'
     elif custom.customType == 3: customType='已批客户'
     elif custom.customType == 4: customType='已放款客户'
-    if custom.sex == 0: sex='男'
+    if custom.sex == None or custom.sex == 0: sex='男'
     elif custom.sex == 1: sex='女'
-    if custom.marriage == 0: marriage='未婚'
+    if custom.marriage == None or custom.marriage == 0: marriage='未婚'
     elif custom.marriage == 1: marriage='已婚'
     elif custom.marriage == 2: marriage='离异'
 $ tmp=0
@@ -106,7 +106,7 @@ $ tmp=0
               <legend><h5>图片文件：</h5></legend>
               <ul id="pictrueUl" class="thumbnails">
 $for file in custom.customFiles:
-                <li class="span4" id="imgUploadLi$loop.index"><a href="/static/custom/$file.filePathName" target="_blank" class="thumbnail"><img src="/static/custom/$file.filePathName" alt="$file.fileName"></a></li>
+                <li class="span4" id="imgUploadLi$loop.index"><a href="http://bcs.duapp.com/crm-01/custom/$file.filePathName" target="_blank" class="thumbnail"><img src="http://bcs.duapp.com/crm-01/custom/$file.filePathName" alt="$file.fileName"></a></li>
 $ tmp=0
               </ul>
             </div>

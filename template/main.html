@@ -12,7 +12,7 @@ $def with (username)
 
     <!-- CSS -->
     <link href="/static/js/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="/static/js/jquery/css/jquery-ui-1.10.2.custom.css" rel="stylesheet" />
+    <link href="/static/js/jquery/css/jquery.ui.custom.min.css" rel="stylesheet" />
     <link href="/static/js/upload/css/uploadify.css" rel="stylesheet" />
     <style type="text/css">
 
@@ -114,11 +114,12 @@ $def with (username)
               <a class="brand" href="#">李彩娟的客户管理系统</a>
               <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
-                  欢迎登录，我最亲爱的~
+                  欢迎登录，$username
                 </p>
                 <ul class="nav">
                   <li class="active"><a href="#"><i class="icon-home icon-white"></i>首页</a></li>
                   <li><a href="#about">关于</a></li>
+                  <!--
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -131,6 +132,7 @@ $def with (username)
                       <li><a href="#">One more separated link</a></li>
                     </ul>
                   </li>
+				  -->
                 </ul>
               </div><!--/.nav-collapse -->
             </div>
@@ -179,9 +181,9 @@ $def with (username)
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/static/js/jquery/jquery-1.10.2.min.js"></script>
-    <script src="/static/js/jquery/jquery-ui-1.10.2.custom.min.js"></script>
-    <script src="/static/js/jquery/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+    <script src="/static/js/jquery/jquery.min.js"></script>
+    <script src="/static/js/jquery/jquery.custom.min.js"></script>
+    <script src="/static/js/jquery/i18n/jquery.ui.datepicker.zh.CN.js"></script>
     <script src="/static/js/bootstrap/js/bootstrap.min.js"></script>
     <script src="/static/js/menu.js"></script>
     <script type="text/javascript">
