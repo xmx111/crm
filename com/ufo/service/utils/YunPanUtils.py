@@ -11,9 +11,9 @@ import pybcs
 pybcs.init_logging(logging.INFO)
 
 HOST = 'http://bcs.duapp.com/'
-AK = 'X1p8KwhrRfpv3rMP9bej3hqj'
-SK = 'OkV35Zq1OyXNSFVB3MdrUGgxmcTbGGk5'
-BNAME = 'crm-01'
+AK = 'xxxxxxxxxx' # 百度云存储的api key
+SK = 'xxxxxxxxxx' # 百度云存储的secret key
+BNAME = 'crm-01'  # 云存储里建的Bucket
 
 
 class baidu:
