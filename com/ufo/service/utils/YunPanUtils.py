@@ -6,8 +6,8 @@ from bae.api import bcs
 from bae.api import logging
 
 HOST = const.BCS_ADDR
-AK = '960888a34d93e7d8bc481bdac994aa4e'
-SK = 'BB9efe74392a0f7c7902b1c088dc0def'
+AK = 'xxxxxxxxxxxxx' #百度云存储的api key
+SK = 'xxxxxxxxxxxxx' #百度云存储的secret key
 BNAME = 'crm-01'
 
 class baidu:
