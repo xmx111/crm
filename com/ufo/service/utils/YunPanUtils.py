@@ -11,8 +11,8 @@ import pybcs
 pybcs.init_logging(logging.INFO)
 
 HOST = 'http://bcs.duapp.com/'
-AK = 'xxxxxxxxxx' # 百度云存储的api key
-SK = 'xxxxxxxxxx' # 百度云存储的secret key
+AK = 'xxxxxxxxxx' # 百度开放云注册的api key
+SK = 'xxxxxxxxxx' # 百度开放云注册的secret key
 BNAME = 'crm-01'  # 云存储里建的Bucket
 
 

@@ -7,8 +7,8 @@ port = const.MYSQL_PORT
 user = const.MYSQL_USER
 password = const.MYSQL_PASS
 '''
-api_key = "X1p8KwhrRfpv3rMP9bej3hqj"
-secret_key = "OkV35Zq1OyXNSFVB3MdrUGgxmcTbGGk5"
+api_key = "xxxxxxxxxx" # 百度云存储的api key
+secret_key = "xxxxxxxxxx" # 百度云存储的secret key
 host = "sqld.duapp.com"
 port = 4050
 user = api_key
